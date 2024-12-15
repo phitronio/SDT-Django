@@ -3,20 +3,21 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-
-def home(request):
-    return HttpResponse("Welcome to the task management system")
-
-
-def contact(request):
-    return HttpResponse("<h1 style='color: red'>This is contact page</h1>")
+def manager_dashboard(request):
+    return render(request, "dashboard/manager-dashboard.html")
 
 
-def show_task(request):
-    return HttpResponse("This is our task page")
+def user_dashboard(request):
+    return render(request, "dashboard/user-dashboard.html")
 
-
-def show_specific_task(request, id):
-    print("id", id)
-    print("id type", type(id))
-    return HttpResponse(f"This is specific task page {id} ")
+def test(request):
+    names = ["Mahmud", "Ahamed", "John", "Mr. X"]
+    count = 0
+    for name in names:
+        count += 1
+    context = {
+        "names": names,
+        "age": 23,
+        "count": count
+    }
+    return render(request, 'test.html', context)
