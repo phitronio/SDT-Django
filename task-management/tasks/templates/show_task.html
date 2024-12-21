@@ -8,15 +8,14 @@
 <body>
     <div>
        <ol>
-            {% for task in tasks %}
+            {% for project in projects %}
                 <li>
-                    <p>{{task.title}}</p>
-                    {% for emp in task.assigned_to.all %}
-                        <p>{{emp.name}}</p>
-                    {% endfor %}
+                    <p>{{project.name}}</p>
+                    <p>{{project.num_task}}</p>
                 </li>
             {% endfor %}
             </ol> 
+            {% comment %} <p>{{task_count}}</p> {% endcomment %}
     </div>
 </body>
 </html>
