@@ -123,6 +123,17 @@ def update_task(request, id):
     return render(request, "task_form.html", context)
 
 
+def delete_task(request, id):
+    if request.method == 'POST':
+        task = Task.objects.get(id=id)
+        task.delete()
+        messages.success(request, 'Task Deleted Successfully')
+        return redirect('manager-dashboard')
+    else:
+        messages.error(request, 'Something went wrong')
+        return redirect('manager-dashboard')
+
+
 def view_task(request):
     projects = Project.objects.annotate(
         num_task=Count('task')).order_by('num_task')

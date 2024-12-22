@@ -163,6 +163,13 @@
             </div>
           </div>
         </div>
+        <div>
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="px-2 py-1 {% if message.tags == 'success' %}bg-green-500{% endif %} ">{{message}}</div>
+              {% endfor %}
+          {% endif %}
+      </div>
         {% block tasks %}
         
         {% endblock tasks %}
