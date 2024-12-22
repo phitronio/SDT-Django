@@ -19,7 +19,7 @@
         <div class="flex items-center gap-2">
           <div class="w-2 h-2 rounded-full bg-green-500"></div>
           <span>{{task.title}}</span>
-          <span>{{task.status}}</span>
+          <a href='{% url "update-task" task.id %}' class="px-2 py-1 bg-green-500">Edit</a>
         </div>
         <div>
           <span
