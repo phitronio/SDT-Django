@@ -13,106 +13,32 @@
     </div>
     <!-- Task Items  -->
     <div class="divide-y divide-gray-100">
-      <!-- Task 1 -->
-      <div class="grid grid-cols-4 gap-4 p-4 items-center">
+     {% for task in tasks %}
+       <!-- Task 1 -->
+       <div class="grid grid-cols-4 gap-4 p-4 items-center">
         <div class="flex items-center gap-2">
           <div class="w-2 h-2 rounded-full bg-green-500"></div>
-          <span>Test Low Task</span>
+          <span>{{task.title}}</span>
         </div>
         <div>
           <span
             class="px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-sm"
-            >Low</span
+            >{{task.details.get_priority_display}}</span
           >
         </div>
         <div class="flex -space-x-2">
+          {% for emp in task.assigned_to.all %}
           <div
-            class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm border-2 border-white"
-          >
-            CA
-          </div>
-          <div
-            class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm border-2 border-white"
-          >
-            JS
-          </div>
-          <div
-            class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm border-2 border-white"
-          >
-            B
-          </div>
+          class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm border-2 border-white"
+        >
+          {{emp.name|slice:':1'}}
         </div>
-        <div class="text-gray-500">9 months ago</div>
+          {% endfor %}
+        </div>
+        <div class="text-gray-500">{{task.created_at|timesince}}</div>
       </div>
+     {% endfor %}
 
-      <!-- Task 2 -->
-      <div class="grid grid-cols-4 gap-4 p-4 items-center">
-        <div class="flex items-center gap-2">
-          <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
-          <span>Test task</span>
-        </div>
-        <div>
-          <span
-            class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-sm"
-            >Normal</span
-          >
-        </div>
-        <div class="flex -space-x-2">
-          <div
-            class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm border-2 border-white"
-          >
-            AJ
-          </div>
-          <div
-            class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm border-2 border-white"
-          >
-            EV
-          </div>
-          <div
-            class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm border-2 border-white"
-          >
-            B
-          </div>
-        </div>
-        <div class="text-gray-500">9 months ago</div>
-      </div>
-
-      <!-- Task 3 -->
-      <div class="grid grid-cols-4 gap-4 p-4 items-center">
-        <div class="flex items-center gap-2">
-          <div class="w-2 h-2 rounded-full bg-orange-500"></div>
-          <span>Test task</span>
-        </div>
-        <div>
-          <span
-            class="px-3 py-1 rounded-full bg-red-50 text-red-600 text-sm"
-            >High</span
-          >
-        </div>
-        <div class="flex -space-x-2">
-          <div
-            class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm border-2 border-white"
-          >
-            CA
-          </div>
-          <div
-            class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm border-2 border-white"
-          >
-            JS
-          </div>
-          <div
-            class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm border-2 border-white"
-          >
-            AJ
-          </div>
-          <div
-            class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm border-2 border-white"
-          >
-            B
-          </div>
-        </div>
-        <div class="text-gray-500">10 months ago</div>
-      </div>
     </div>
   </div>
 
