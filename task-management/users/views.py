@@ -1,16 +1,16 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from users.forms import RegisterForm
+from users.forms import CustomRegistrationForm
 
 # Create your views here.
 
 
 def sign_up(request):
     if request.method == 'GET':
-        form = RegisterForm()
+        form = CustomRegistrationForm()
     if request.method == 'POST':
-        form = RegisterForm(request.POST)
+        form = CustomRegistrationForm(request.POST)
         if form.is_valid():
             # username = form.cleaned_data.get('username')
             # password = form.cleaned_data.get('password1')
