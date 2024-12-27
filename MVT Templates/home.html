@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskMaster - Efficient Task Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="font-sans bg-gray-100">
+    <header class="bg-white shadow-md">
+      <nav class="container mx-auto px-6 py-3">
+        <div class="flex justify-between items-center">
+          <div class="text-xl font-bold text-gray-800">TaskMaster</div>
+          <div class="hidden md:flex space-x-4">
+            <a href="#" class="text-gray-600 hover:text-gray-800">Features</a>
+            <a href="#" class="text-gray-600 hover:text-gray-800">Pricing</a>
+            <a href="#" class="text-gray-600 hover:text-gray-800">About</a>
+            <a href="#" class="text-gray-600 hover:text-gray-800">Contact</a>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="menu-toggle"
+              class="text-gray-600 hover:text-gray-800 focus:outline-none"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <a
+            href="#"
+            class="hidden md:block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300"
+            >Sign Up</a
+          >
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden mt-4">
+          <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+            >Features</a
+          >
+          <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+            >Pricing</a
+          >
+          <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+            >About</a
+          >
+          <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+            >Contact</a
+          >
+          <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+            >Sign Up</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="bg-blue-600 text-white py-32 md:py-40">
+        <div class="container mx-auto px-6 text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Streamline Your Workflow with TaskMaster
+          </h1>
+          <p class="text-xl mb-12">
+            Empower your team with our intuitive task management solution
+          </p>
+          <a
+            href="#"
+            class="bg-white text-blue-600 px-8 py-4 rounded-md font-semibold text-lg hover:bg-gray-100 transition duration-300"
+            >Get Started</a
+          >
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="py-24 md:py-32">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl font-bold text-center mb-16">
+            Tailored for Every Role
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Admin Card -->
+            <div class="bg-white rounded-lg shadow-md p-8">
+              <h3 class="text-2xl font-semibold mb-6">Admin</h3>
+              <ul class="list-disc list-inside text-gray-600 space-y-3">
+                <li>Manage user roles and permissions</li>
+                <li>Generate comprehensive reports</li>
+                <li>Configure system-wide settings</li>
+                <li>Monitor team performance</li>
+              </ul>
+            </div>
+            <!-- Manager Card -->
+            <div class="bg-white rounded-lg shadow-md p-8">
+              <h3 class="text-2xl font-semibold mb-6">Manager</h3>
+              <ul class="list-disc list-inside text-gray-600 space-y-3">
+                <li>Create and assign tasks to employees</li>
+                <li>Track project progress in real-time</li>
+                <li>Set deadlines and priorities</li>
+                <li>Generate team performance reports</li>
+              </ul>
+            </div>
+            <!-- Employee Card -->
+            <div class="bg-white rounded-lg shadow-md p-8">
+              <h3 class="text-2xl font-semibold mb-6">Employee</h3>
+              <ul class="list-disc list-inside text-gray-600 space-y-3">
+                <li>View and manage assigned tasks</li>
+                <li>Collaborate with team members</li>
+                <li>Update task status and progress</li>
+                <li>Track personal productivity</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="bg-gray-200 py-24 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+          <h2 class="text-3xl font-bold mb-6">
+            Ready to Boost Your Team's Productivity?
+          </h2>
+          <p class="text-xl mb-12">
+            Join thousands of organizations already using TaskMaster
+          </p>
+          <a
+            href="#"
+            class="bg-blue-500 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-blue-600 transition duration-300"
+            >Start Free Trial</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-wrap justify-between">
+          <div class="w-full md:w-1/4 mb-8 md:mb-0">
+            <h3 class="text-lg font-semibold mb-4">TaskMaster</h3>
+            <p class="text-gray-400">
+              Empowering teams with efficient task management solutions.
+            </p>
+          </div>
+          <div class="w-full md:w-1/4 mb-8 md:mb-0">
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul class="text-gray-400 space-y-2">
+              <li><a href="#" class="hover:text-white">Home</a></li>
+              <li><a href="#" class="hover:text-white">Features</a></li>
+              <li><a href="#" class="hover:text-white">Pricing</a></li>
+              <li><a href="#" class="hover:text-white">Contact</a></li>
+            </ul>
+          </div>
+          <div class="w-full md:w-1/4 mb-8 md:mb-0">
+            <h4 class="text-lg font-semibold mb-4">Connect</h4>
+            <ul class="text-gray-400 space-y-2">
+              <li><a href="#" class="hover:text-white">Twitter</a></li>
+              <li><a href="#" class="hover:text-white">LinkedIn</a></li>
+              <li><a href="#" class="hover:text-white">Facebook</a></li>
+            </ul>
+          </div>
+          <div class="w-full md:w-1/4">
+            <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="w-full px-3 py-2 text-gray-700 bg-gray-200 rounded-l-md focus:outline-none"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-12 pt-8 text-sm text-center text-gray-400"
+        >
+          &copy; 2023 TaskMaster. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>

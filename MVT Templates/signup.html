@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - TaskMaster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="font-sans bg-gray-100">
+    <header class="bg-white shadow-md">
+      <nav class="container mx-auto px-6 py-3">
+        <div class="flex justify-between items-center">
+          <a href="index.html" class="text-xl font-bold text-gray-800"
+            >TaskMaster</a
+          >
+          <div class="hidden md:flex space-x-4">
+            <a href="#" class="text-gray-600 hover:text-gray-800">Features</a>
+            <a href="#" class="text-gray-600 hover:text-gray-800">Pricing</a>
+            <a href="#" class="text-gray-600 hover:text-gray-800">About</a>
+            <a href="#" class="text-gray-600 hover:text-gray-800">Contact</a>
+          </div>
+          <div class="md:hidden">
+            <button
+              id="menu-toggle"
+              class="text-gray-600 hover:text-gray-800 focus:outline-none"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden mt-4">
+          <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+            >Features</a
+          >
+          <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+            >Pricing</a
+          >
+          <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+            >About</a
+          >
+          <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+            >Contact</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+      <div
+        class="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden"
+      >
+        <div class="bg-blue-600 text-white py-4 px-6">
+          <h2 class="text-2xl font-bold">Sign Up for TaskMaster</h2>
+          <p class="mt-1">Start managing your tasks efficiently</p>
+        </div>
+        <form class="py-6 px-8">
+          <div class="mb-4">
+            <label
+              for="full-name"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="full-name"
+              name="full-name"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="email"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="password"
+              class="block text-gray-700 text-sm font-bold mb-2"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label for="role" class="block text-gray-700 text-sm font-bold mb-2"
+              >Role</label
+            >
+            <select
+              id="role"
+              name="role"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            >
+              <option value="">Select your role</option>
+              <option value="admin">Admin</option>
+              <option value="manager">Manager</option>
+              <option value="employee">Employee</option>
+            </select>
+          </div>
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                id="agree-terms"
+                name="agree-terms"
+                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                required
+              />
+              <label for="agree-terms" class="ml-2 block text-sm text-gray-900">
+                I agree to the
+                <a href="#" class="text-blue-600 hover:underline"
+                  >Terms and Conditions</a
+                >
+              </label>
+            </div>
+          </div>
+          <div>
+            <button
+              type="submit"
+              class="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
+        <div class="bg-gray-100 py-4 px-8 text-center">
+          <p class="text-sm text-gray-600">
+            Already have an account?
+            <a href="#" class="text-blue-600 hover:underline">Log in</a>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-wrap justify-between">
+          <div class="w-full md:w-1/4 mb-6 md:mb-0">
+            <h3 class="text-lg font-semibold mb-2">TaskMaster</h3>
+            <p class="text-gray-400">
+              Empowering teams with efficient task management solutions.
+            </p>
+          </div>
+          <div class="w-full md:w-1/4 mb-6 md:mb-0">
+            <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
+            <ul class="text-gray-400">
+              <li><a href="#" class="hover:text-white">Home</a></li>
+              <li><a href="#" class="hover:text-white">Features</a></li>
+              <li><a href="#" class="hover:text-white">Pricing</a></li>
+              <li><a href="#" class="hover:text-white">Contact</a></li>
+            </ul>
+          </div>
+          <div class="w-full md:w-1/4 mb-6 md:mb-0">
+            <h4 class="text-lg font-semibold mb-2">Connect</h4>
+            <ul class="text-gray-400">
+              <li><a href="#" class="hover:text-white">Twitter</a></li>
+              <li><a href="#" class="hover:text-white">LinkedIn</a></li>
+              <li><a href="#" class="hover:text-white">Facebook</a></li>
+            </ul>
+          </div>
+          <div class="w-full md:w-1/4">
+            <h4 class="text-lg font-semibold mb-2">Newsletter</h4>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="w-full px-3 py-2 text-gray-700 bg-gray-200 rounded-l-md focus:outline-none"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition duration-300"
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-8 pt-8 text-sm text-center text-gray-400"
+        >
+          &copy; 2023 TaskMaster. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>
