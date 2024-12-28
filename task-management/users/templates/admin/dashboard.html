@@ -52,6 +52,7 @@
                   >Dashboard</a
                 >
                 <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
                   <button
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >

@@ -19,7 +19,7 @@
                     <td class="border border-gray-300 px-4 py-2">
                         <ul class="list-disc list-inside">
                             {% for permission in group.permissions.all %}
-                                <li>{{permission.name}}</li>
+                                <li>{{permission.name}}|{{permission.codename}}</li>
                             {% empty %}
                                 <span class="text-gray-500 italic">No permissions assigned</span>
                             {% endfor %}
