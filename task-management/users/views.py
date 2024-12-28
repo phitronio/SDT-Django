@@ -58,3 +58,18 @@ def activate_user(request, user_id, token):
 
     except User.DoesNotExist:
         return HttpResponse('User not found')
+
+
+""" 
+
+    Admin
+        - Sobkisui
+    Manager
+        - project
+        - task create
+    Employee
+        - Task read
+        - Task update
+    
+    Role Based Access Control (RBAC)
+"""
