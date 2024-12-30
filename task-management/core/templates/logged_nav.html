@@ -1,0 +1,92 @@
+<header class="bg-white shadow-md">
+    <nav class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="text-xl font-bold text-gray-800"
+          >Taskify</a
+        >
+        <div class="hidden md:flex space-x-4">
+          <a
+            href="{% url 'admin-dashboard' %}"
+            class="text-gray-600 hover:text-gray-800"
+            >Dashboard</a
+          >
+          <a href="#" class="text-gray-600 hover:text-gray-800">Tasks</a>
+          <a href="{% url 'group-list' %}" class="text-gray-600 hover:text-gray-800"
+            >Tasks</a
+          >
+          <a
+            href="{% url 'create-group' %}"
+            class="text-gray-600 hover:text-gray-800"
+            >Create Task</a
+          >
+        </div>
+        <div class="flex items-center">
+          <div class="relative">
+            <button
+              id="user-menu-button"
+              class="flex items-center focus:outline-none"
+            >
+              <img
+                class="h-8 w-8 rounded-full object-cover"
+                src="https://placekitten.com/100/100"
+                alt="User avatar"
+              />
+            </button>
+            <div
+              id="user-menu"
+              class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden"
+            >
+              <a
+                href="{% url 'admin-dashboard' %}"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >Dashboard</a
+              >
+              <form method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                <button
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Logout
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="md:hidden ml-4">
+            <button
+              id="menu-toggle"
+              class="text-gray-600 hover:text-gray-800 focus:outline-none"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden mt-4">
+        <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+          >Dashboard</a
+        >
+        <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+          >Tasks</a
+        >
+        <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+          >Groups</a
+        >
+        <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
+          >Create Group</a
+        >
+      </div>
+    </nav>
+  </header>
