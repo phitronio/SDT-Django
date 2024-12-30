@@ -16,7 +16,7 @@
                 {% endfor %}
             {% endif %}
         </div>
-        <form method="POST">
+        <form method="POST" enctype='multipart/form-data'>
             
             {% csrf_token %}
             {{ task_form }}
