@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Low Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+      <h1 class="text-3xl font-bold mb-6">Test Low Task</h1>
+
+      <!-- Navigation Tabs -->
+      <div class="flex gap-4 mb-8 border-b">
+        <button
+          class="px-4 py-2 bg-blue-50 text-blue-600 rounded-t-lg flex items-center gap-2"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+            ></path>
+          </svg>
+          Task Detail
+        </button>
+        <div class="flex items-center gap-2">
+          <select
+            name="task_status"
+            id="task_status"
+            class="px-4 py-2 border rounded-md"
+          >
+            <option value="pending">Pending</option>
+            <option value="in_progress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+          <button
+            class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            type="submit"
+          >
+            Change Status
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <!-- Status Tags -->
+            <div class="flex gap-3 mb-6">
+              <span
+                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
+                >LOW PRIORITY</span
+              >
+              <span
+                class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm"
+                >COMPLETED</span
+              >
+            </div>
+
+            <!-- Creation Date -->
+            <div class="text-gray-600 mb-6">Created At: Thu Mar 14 2024</div>
+
+            <!-- Metrics -->
+            <div class="mb-8">
+              <div class="flex items-center gap-2">
+                <span class="font-semibold">Assets:</span>
+                <span>3</span>
+              </div>
+            </div>
+
+            <!-- Task Team -->
+            <div class="mb-9">
+              <h2 class="text-xl font-bold mb-4">TASK TEAM</h2>
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white"
+                  >
+                    CA
+                  </div>
+                  <div>
+                    <div class="font-semibold">Codewave Asante</div>
+                    <div class="text-gray-600">Administrator</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white"
+                  >
+                    JS
+                  </div>
+                  <div>
+                    <div class="font-semibold">Jane Smith</div>
+                    <div class="text-gray-600">Product Manager</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white"
+                  >
+                    B
+                  </div>
+                  <div>
+                    <div class="font-semibold">B</div>
+                    <div class="text-gray-600">developer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button
+                class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                type="submit"
+              >
+                Delete Task
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-1">
+          <!-- Task Description -->
+          <div class="bg-white p-6 rounded-lg shadow-sm mb-6">
+            <h2 class="text-xl font-bold mb-4">TASK DESCRIPTION</h2>
+            <p class="text-gray-600">
+              Switches are a pleasant interface for toggling a value between two
+              states, and offer the same semantics and keyboard navigation as
+              native checkbox elements
+            </p>
+          </div>
+
+          <!-- Assets -->
+          <div class="bg-white p-6 rounded-lg shadow-sm">
+            <h2 class="text-xl font-bold mb-4">ASSETS</h2>
+            <div class="space-y-4">
+              <img
+                src="/placeholder.svg?height=200&width=300"
+                alt="Task Manager App Screenshot 1"
+                class="w-full rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
