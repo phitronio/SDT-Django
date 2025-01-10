@@ -1,3 +1,4 @@
+{% load custom_filters %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -65,10 +66,10 @@
                 Account Information
               </h3>
               <p class="text-gray-600">
-                <span class="font-medium">Member Since:</span> {{member_since}}
+                <span class="font-medium">Member Since:</span> {{member_since|humanized_date}}
               </p>
               <p class="text-gray-600">
-                <span class="font-medium">Last Login:</span> {{last_login}}
+                <span class="font-medium">Last Login:</span> {{last_login|humanized_date}}
               </p>
             </div>
           </div>
