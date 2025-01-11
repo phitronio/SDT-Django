@@ -1,13 +1,8 @@
+{% extends "base.html" %}
 {% load custom_filters %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Profile</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-gray-100">
+{% block title %}Profile{% endblock title %}
+{% block content %}
+  <div class="bg-gray-100">
     <div class="flex min-h-screen">
       <!-- Sidebar -->
       <aside class="w-64 bg-white shadow-md">
@@ -23,7 +18,7 @@
           <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
             >Edit Profile</a
           >
-          <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
+          <a href="{% url 'password_change' %}" class="block py-2 px-4 text-gray-700 hover:bg-gray-200"
             >Change Password</a
           >
         </nav>
@@ -85,5 +80,5 @@
         </div>
       </main>
     </div>
-  </body>
-</html>
+  </div>
+  {% endblock content %}
