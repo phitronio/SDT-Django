@@ -118,11 +118,11 @@ class EditProfileForm(StyledFormMixin, forms.ModelForm):
         model = User
         fields = ['email', 'first_name', 'last_name']
 
-    bio = forms.CharField(required=False, widget=forms.Textarea)
-    profile_image = forms.ImageField(required=False)
+    bio = forms.CharField(required=False, widget=forms.Textarea, label='Bio')
+    profile_image = forms.ImageField(required=False, label='Profile Image')
 
     def __init__(self, *args, **kwargs):
-        print(kwargs)
+        self.userprofile = kwargs.pop('userprofile', None)
         super().__init__(*args, **kwargs)
 
         # Todo: Handle Error
