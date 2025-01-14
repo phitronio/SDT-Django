@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, Permission, Group
 from tasks.forms import StyledFormMixin
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
-from users.models import UserProfile
+from users.models import CustomUser
 
 
 class RegisterForm(UserCreationForm):
@@ -113,6 +113,7 @@ class CustomPasswordResetConfirmForm(StyledFormMixin, SetPasswordForm):
     pass
 
 
+"""
 class EditProfileForm(StyledFormMixin, forms.ModelForm):
     class Meta:
         model = User
@@ -124,6 +125,7 @@ class EditProfileForm(StyledFormMixin, forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.userprofile = kwargs.pop('userprofile', None)
         super().__init__(*args, **kwargs)
+        print("forms", self.userprofile)
 
         # Todo: Handle Error
 
@@ -147,3 +149,10 @@ class EditProfileForm(StyledFormMixin, forms.ModelForm):
             user.save()
 
         return user
+"""
+
+
+class EditProfileForm(StyledFormMixin, forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['email', 'first_name', 'last_name', 'bio', 'profile_image']

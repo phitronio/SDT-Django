@@ -11,12 +11,39 @@ from django.db.models import Prefetch
 from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordResetView, PasswordResetConfirmView
 from django.views.generic import TemplateView, UpdateView
 from django.urls import reverse_lazy
-from users.models import UserProfile
 
 
 # Create your views here.
 
 # Test for users
+"""
+class EditProfileView(UpdateView):
+    model = User
+    form_class = EditProfileForm
+    template_name = 'accounts/update_profile.html'
+    context_object_name = 'form'
+
+    def get_object(self):
+        return self.request.user
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['userprofile'] = UserProfile.objects.get(user=self.request.user)
+        return kwargs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_profile = UserProfile.objects.get(user=self.request.user)
+        print("views", user_profile)
+        context['form'] = self.form_class(
+            instance=self.object, userprofile=user_profile)
+        return context
+
+    def form_valid(self, form):
+        form.save(commit=True)
+        return redirect('profile')
+"""
+
 
 class EditProfileView(UpdateView):
     model = User
@@ -27,15 +54,8 @@ class EditProfileView(UpdateView):
     def get_object(self):
         return self.request.user
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        user_profile = UserProfile.objects.get(user=self.request.user)
-        context['form'] = self.form_class(
-            instance=self.object, userprofile=user_profile)
-        return context
-
     def form_valid(self, form):
-        form.save(commit=True)
+        form.save()
         return redirect('profile')
 
 
@@ -171,6 +191,8 @@ class ProfileView(TemplateView):
         context['username'] = user.username
         context['email'] = user.email
         context['name'] = user.get_full_name()
+        context['bio'] = user.userprofile.bio
+        context['profile_image'] = user.userprofile.profile_image
 
         context['member_since'] = user.date_joined
         context['last_login'] = user.last_login
