@@ -8,7 +8,7 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'name', 'description', 'product_count']
 
-    product_count = serializers.IntegerField()
+    product_count = serializers.IntegerField(read_only=True)
 
 
 # class ProductSerializer(serializers.Serializer):
