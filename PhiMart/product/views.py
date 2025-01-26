@@ -6,22 +6,16 @@ from django.db.models import Count
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
 from product.filters import ProductFilter
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    filter_backends = [DjangoFilterBackend]
-    # filterset_fields = ['category_id', 'price']
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = ProductFilter
-
-    # def get_queryset(self):
-    #     queryset = Product.objects.all()
-    #     category_id = self.request.query_params.get('category_id')
-
-    #     if category_id is not None:
-    #         queryset = Product.objects.filter(category_id=category_id)
-    #     return queryset
+    search_fields = ['name', 'description']
+    ordering_fields = ['price', 'updated_at']
 
     def destroy(self, request, *args, **kwargs):
         product = self.get_object()
