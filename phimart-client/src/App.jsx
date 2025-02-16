@@ -1,12 +1,13 @@
-// import "./App.css";
-import FirstComponent from "./components/FirstComponent";
-import List from "./components/List";
+import PlayWithButton from "./components/PlayWithButton";
 
 function App() {
   return (
     <>
-      <FirstComponent />
-      <List></List>
+      {/* <Alert color="info" />
+      <Button handleClick={handleClick} color="info">
+        My Button
+      </Button> */}
+      <PlayWithButton />
     </>
   );
 }
