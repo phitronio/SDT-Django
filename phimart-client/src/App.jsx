@@ -1,3 +1,4 @@
+import Person from "./components/Person";
 import PlayWithButton from "./components/PlayWithButton";
 
 function App() {
@@ -7,7 +8,8 @@ function App() {
       <Button handleClick={handleClick} color="info">
         My Button
       </Button> */}
-      <PlayWithButton />
+      {/* <PlayWithButton /> */}
+      <Person />
     </>
   );
 }
