@@ -1,7 +1,17 @@
+import { useRef } from "react";
+
 const Form = () => {
+  const nameRef = useRef(null);
+  const ageRef = useRef(null);
+
+  const person = { name: "", age: 0 };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Submitted");
+    if (nameRef.current !== null) person.name = nameRef.current.value;
+    if (ageRef.current !== null) person.age = parseInt(ageRef.current.value);
+
+    console.log(person);
   };
   return (
     <div>
@@ -14,6 +24,7 @@ const Form = () => {
             Name:
           </label>
           <input
+            ref={nameRef}
             id="name"
             type="text"
             className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
@@ -27,6 +38,7 @@ const Form = () => {
             Age:
           </label>
           <input
+            ref={ageRef}
             id="age"
             type="number"
             className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
