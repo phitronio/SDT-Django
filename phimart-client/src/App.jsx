@@ -1,9 +1,9 @@
-import FormState from "./components/FormState";
+import HookForm from "./components/HookForm";
 
 function App() {
   return (
     <div className="m-5">
-      <FormState />
+      <HookForm />
     </div>
   );
 }
