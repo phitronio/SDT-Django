@@ -1,9 +1,9 @@
-import APIFetch from "./components/APIFetch";
+import Form from "./components/Form";
 
 function App() {
   return (
     <div className="m-5">
-      <APIFetch />
+      <Form />
     </div>
   );
 }
