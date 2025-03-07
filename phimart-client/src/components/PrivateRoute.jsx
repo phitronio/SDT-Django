@@ -3,7 +3,7 @@ import { Navigate } from "react-router";
 
 const PrivateRoute = ({ children }) => {
   const { user } = useAuthContext();
-  console.log(user);
+  if (user === null) return <p>Loading...</p>;
   return user ? children : <Navigate to="/login"></Navigate>;
 };
 
