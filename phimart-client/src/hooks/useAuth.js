@@ -12,11 +12,9 @@ const useAuth = () => {
   const [authTokens, setAuthTokens] = useState(getToken());
 
   // Login User
-  const loginUser = async (email, password) => {
-    const response = await apiClient.post("/auth/jwt/create/", {
-      email,
-      password,
-    });
+  const loginUser = async (userData) => {
+    console.log(userData);
+    const response = await apiClient.post("/auth/jwt/create/", userData);
     console.log(response.data);
   };
 
