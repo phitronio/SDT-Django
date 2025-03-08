@@ -1,7 +1,10 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
+import useAuthContext from "../hooks/useAuthContext";
 
 const Register = () => {
+  const { registerUser } = useAuthContext();
+
   const {
     register,
     handleSubmit,
@@ -9,9 +12,13 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     delete data.confirm_password;
-    console.log(data);
+    try {
+      await registerUser(data);
+    } catch (error) {
+      console.log("Registration failed", error);
+    }
   };
 
   return (
