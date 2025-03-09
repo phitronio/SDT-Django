@@ -10,6 +10,16 @@ import {
 import { Link } from "react-router";
 
 const Sidebar = () => {
+  const menuItems = [
+    { to: "/dashboard", icon: FiBarChart2, label: "Dashboard" },
+    { to: "/products", icon: FiPackage, label: "Products" },
+    { to: "/products/add", icon: FiPlusCircle, label: "Add Product" },
+    { to: "/categories", icon: FiTag, label: "Categories" },
+    { to: "/categories/add", icon: FiPlusCircle, label: "Add Category" },
+    { to: "/orders", icon: FiShoppingCart, label: "Orders" },
+    { to: "/reviews", icon: FiStar, label: "Reviews" },
+    { to: "/users", icon: FiUsers, label: "Users" },
+  ];
   return (
     <div className="drawer-side z-10">
       <label
@@ -26,54 +36,14 @@ const Sidebar = () => {
 
         {/* Sidebar menu */}
         <ul className="menu menu-md gap-2">
-          <li>
-            <Link to="/dashboard" className="flex items-center">
-              <FiBarChart2 className="h-4 w-4" />
-              <span>Dashboard</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/products" className="flex items-center">
-              <FiPackage className="h-4 w-4" />
-              <span>Products</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/products/add" className="flex items-center">
-              <FiPlusCircle className="h-4 w-4" />
-              <span>Add Product</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/categories" className="flex items-center">
-              <FiTag className="h-4 w-4" />
-              <span>Categories</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/categories/add" className="flex items-center">
-              <FiPlusCircle className="h-4 w-4" />
-              <span>Add Category</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/orders" className="flex items-center">
-              <FiShoppingCart className="h-4 w-4" />
-              <span>Orders</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/reviews" className="flex items-center">
-              <FiStar className="h-4 w-4" />
-              <span>Reviews</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/users" className="flex items-center">
-              <FiUsers className="h-4 w-4" />
-              <span>Users</span>
-            </Link>
-          </li>
+          {menuItems.map((item, index) => (
+            <li key={index}>
+              <Link to={item.to} className="flex items-center">
+                <item.icon className="h-4 w-4" />
+                <span>{item.label}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Sidebar footer */}
