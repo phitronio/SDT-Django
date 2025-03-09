@@ -1,7 +1,7 @@
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router";
 
-const Navbar = ({ NavbarOpen }) => {
+const Navbar = ({ sidebarOpen }) => {
   return (
     <div className="navbar bg-base-100 border-b">
       <div className="flex-none lg:hidden">
