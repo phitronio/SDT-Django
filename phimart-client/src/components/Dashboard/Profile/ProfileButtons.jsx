@@ -3,7 +3,7 @@ const ProfileButtons = ({ isEditing, setIsEditing }) => {
     <div className="flex justify-center pt-4">
       {isEditing ? (
         <div className="space-x-4">
-          <button type="button" className="btn btn-primary px-8">
+          <button type="submit" className="btn btn-primary px-8">
             Save Changes
           </button>
           <button
