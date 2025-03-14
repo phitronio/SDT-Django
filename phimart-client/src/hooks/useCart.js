@@ -1,8 +1,9 @@
 import { useState } from "react";
 import apiClient from "../services/api-client";
+import authApiClient from "../services/auth-api-client";
 
 const useCart = () => {
-  const [authToken, setAuthToken] = useState(
+  const [authToken] = useState(
     () => JSON.parse(localStorage.getItem("authTokens")).access
   );
   const [cart, setCart] = useState(null);
@@ -12,13 +13,7 @@ const useCart = () => {
   const createOrGetCart = async () => {
     try {
       console.log(authToken);
-      const response = await apiClient.post(
-        "/carts/",
-        {},
-        {
-          headers: { Authorization: `JWT ${authToken}` },
-        }
-      );
+      const response = await authApiClient.post("/carts/");
       if (!cartId) {
         localStorage.setItem("cartId", response.data.id);
         setCartId(response.data.id);
@@ -33,13 +28,10 @@ const useCart = () => {
   const AddCartItems = async (product_id, quantity) => {
     if (!cartId) await createOrGetCart();
     try {
-      const response = await apiClient.post(
-        `/carts/${cartId}/items/`,
-        { product_id, quantity },
-        {
-          headers: { Authorization: `JWT ${authToken}` },
-        }
-      );
+      const response = await apiClient.post(`/carts/${cartId}/items/`, {
+        product_id,
+        quantity,
+      });
       return response.data;
     } catch (error) {
       console.log("Error adding Items", error);

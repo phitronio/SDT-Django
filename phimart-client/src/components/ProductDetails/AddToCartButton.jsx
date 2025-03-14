@@ -31,16 +31,6 @@ const AddToCartButton = ({ product }) => {
       console.log(error);
       setIsAdding(false);
     }
-    // Simulate API Call
-    // setIsAdding(true);
-    // setTimeout(() => {
-    //   setIsAdding(false);
-    //   setIsAdded(true);
-
-    //   setTimeout(() => {
-    //     setIsAdded(false);
-    //   }, 2000);
-    // }, 1000);
   };
 
   return (
