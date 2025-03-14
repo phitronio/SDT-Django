@@ -50,15 +50,24 @@ const useCart = () => {
   // Update Item quantity
   const updateCartItemQuantity = useCallback(
     async (itemId, quantity) => {
-      setLoading(true);
       try {
         await authApiClient.patch(`/carts/${cartId}/items/${itemId}/`, {
           quantity,
         });
       } catch (error) {
         console.log("Error updating cart items", error);
-      } finally {
-        setLoading(false);
+      }
+    },
+    [cartId]
+  );
+
+  // Delete Cart Items
+  const deleteCartItems = useCallback(
+    async (itemId) => {
+      try {
+        await authApiClient.delete(`/carts/${cartId}/items/${itemId}/`);
+      } catch (error) {
+        console.log(error);
       }
     },
     [cartId]
@@ -70,6 +79,7 @@ const useCart = () => {
     createOrGetCart,
     AddCartItems,
     updateCartItemQuantity,
+    deleteCartItems,
   };
 };
 
