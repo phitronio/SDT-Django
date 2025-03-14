@@ -24,7 +24,7 @@ const AppRoutes = () => {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="activate/:uid/:token" element={<ActivateAccount />} />
-        <Route path="shop/:id" element={<ProductDetail />} />
+        <Route path="shop/:productId" element={<ProductDetail />} />
       </Route>
       {/* Private Routes  */}
       <Route

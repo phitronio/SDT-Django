@@ -11,7 +11,7 @@ import defaultImage from "../../assets/default_product.jpg";
 const ProductImageGallery = ({ images, ProductName }) => {
   const [thumbsSwiper] = useState(null);
 
-  const displayImages = images.length > 0 ? images : [defaultImage];
+  const displayImages = images.length > 0 ? images : [{ image: defaultImage }];
   return (
     <div className="rounded-lg border overflow-hidden">
       <Swiper
@@ -24,11 +24,13 @@ const ProductImageGallery = ({ images, ProductName }) => {
       >
         {displayImages.map((imageObj, index) => (
           <SwiperSlide key={index}>
-            <img
-              src={imageObj.image}
-              alt={ProductName}
-              className="h-full w-full object-contain"
-            />
+            <div className="aspect-square bg-base-100">
+              <img
+                src={imageObj.image}
+                alt={ProductName}
+                className="h-full w-full object-contain"
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
