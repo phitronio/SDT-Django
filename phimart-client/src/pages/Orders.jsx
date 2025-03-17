@@ -1,3 +1,5 @@
+import OrderCard from "../components/Orders/OrderCard";
+
 const Orders = () => {
   const orders = [
     {
@@ -35,6 +37,9 @@ const Orders = () => {
   return (
     <div className="container mx-auto py-8 px-4">
       <h1 className="text-2xl font-bold mb-6">Order Details</h1>
+      {orders.map((order) => (
+        <OrderCard key={order.id} order={order} />
+      ))}
     </div>
   );
 };

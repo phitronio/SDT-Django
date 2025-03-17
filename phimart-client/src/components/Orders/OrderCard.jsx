@@ -1,4 +1,4 @@
-const OrderCard = (order) => {
+const OrderCard = ({ order }) => {
   return (
     <div className="bg-white rounded-lg shadow-lg mb-8 overflow-hidden">
       <div className="bg-gray-100 p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
