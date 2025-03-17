@@ -1,4 +1,8 @@
+import useAuthContext from "../../hooks/useAuthContext";
+import OrderTable from "./OrderTable";
+
 const OrderCard = ({ order }) => {
+  const { user } = useAuthContext();
   return (
     <div className="bg-white rounded-lg shadow-lg mb-8 overflow-hidden">
       <div className="bg-gray-100 p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -22,33 +26,7 @@ const OrderCard = ({ order }) => {
       <div className="p-6">
         <h3 className="font-medium text-lg mb-4">Order Items</h3>
         {/* Order Items Table  */}
-        <div className="overflow-x-auto">
-          <table className="table-auto w-full border-collapse">
-            <thead>
-              <tr className="bg-gray-50 border-b">
-                <th className="px-4 py-3 text-left">Product</th>
-                <th className="px-4 py-3 text-right">Price</th>
-                <th className="px-4 py-3 text-right">Quantity</th>
-                <th className="px-4 py-3 text-right">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {order.items.map((item) => (
-                // Order Items
-                <tr key={item.id} className="border-b hover:bg-gray-50">
-                  <td className="px-4 py-3 font-medium">{item.product.name}</td>
-                  <td className="px-4 py-3 text-right">
-                    ${item.price.toFixed(2)}
-                  </td>
-                  <td className="px-4 py-3 text-right">{item.quantity}</td>
-                  <td className="px-4 py-3 text-right">
-                    ${item.total_price.toFixed(2)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <OrderTable items={order.items} />
       </div>
       <div className="border-t p-6 flex flex-col items-end">
         <div className="space-y-2 w-full max-w-[200px]">
@@ -65,7 +43,7 @@ const OrderCard = ({ order }) => {
             <span>${order.total_price.toFixed(2)}</span>
           </div>
         </div>
-        {order.status === "Not Paid" && (
+        {!user.is_staff && order.status === "Not Paid" && (
           <button className="mt-4 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors">
             Pay Now
           </button>
