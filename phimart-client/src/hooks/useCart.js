@@ -3,7 +3,7 @@ import authApiClient from "../services/auth-api-client";
 
 const useCart = () => {
   const [authToken] = useState(
-    () => JSON.parse(localStorage.getItem("authTokens")).access
+    () => JSON.parse(localStorage.getItem("authTokens"))?.access
   );
   const [cart, setCart] = useState(null);
   const [cartId, setCartId] = useState(() => localStorage.getItem("cartId"));
@@ -13,7 +13,6 @@ const useCart = () => {
   const createOrGetCart = useCallback(async () => {
     setLoading(true);
     try {
-      console.log(authToken);
       const response = await authApiClient.post("/carts/");
       if (!cartId) {
         localStorage.setItem("cartId", response.data.id);
@@ -25,7 +24,7 @@ const useCart = () => {
     } finally {
       setLoading(false);
     }
-  }, [authToken, cartId]);
+  }, [cartId]);
 
   // Add items to the cart
   const AddCartItems = useCallback(

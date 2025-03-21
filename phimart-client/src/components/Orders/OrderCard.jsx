@@ -1,8 +1,29 @@
+import { useState } from "react";
 import useAuthContext from "../../hooks/useAuthContext";
 import OrderTable from "./OrderTable";
+import authApiClient from "../../services/auth-api-client";
 
-const OrderCard = ({ order }) => {
+const OrderCard = ({ order, onCancel }) => {
   const { user } = useAuthContext();
+  const [status, setStatus] = useState(order.status);
+
+  const handleStatusChange = async (event) => {
+    const newStatus = event.target.value;
+    try {
+      const response = await authApiClient.patch(
+        `/orders/${order.id}/update_status/`,
+        { status: newStatus }
+      );
+      console.log(response);
+      if (response.status === 200) {
+        setStatus(newStatus);
+        alert(response.data.status);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-lg mb-8 overflow-hidden">
       <div className="bg-gray-100 p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -11,16 +32,37 @@ const OrderCard = ({ order }) => {
           <p className="text-gray-600 text-sm">Placed on {order.created_at}</p>
         </div>
         <div className="flex gap-2">
-          <span
-            className={`px-3 py-1 rounded-full text-white text-sm font-medium ${
-              order.status === "Not Paid" ? "bg-red-500" : "bg-green-500"
-            }`}
-          >
-            {order.status}
-          </span>
-          {order.status !== "Deliverd" && (
-            <span className="text-blue-700 hover:underline">Cancel</span>
+          {user.is_staff ? (
+            <select
+              value={status}
+              onChange={handleStatusChange}
+              className="px-3 py-1 rounded-full text-white text-sm font-medium bg-blue-500"
+            >
+              <option value="Not Paid">Not Paid</option>
+              <option value="Ready To Ship">Ready To Ship</option>
+              <option value="Shipped">Shipped</option>
+              <option value="Delivered">Delivered</option>
+              <option value="Canceled">Canceled</option>
+            </select>
+          ) : (
+            <span
+              className={`px-3 py-1 rounded-full text-white text-sm font-medium ${
+                order.status === "Not Paid" ? "bg-red-500" : "bg-green-500"
+              }`}
+            >
+              {order.status}
+            </span>
           )}
+          {order.status !== "Deliverd" &&
+            order.status !== "Canceled" &&
+            !user.is_staff && (
+              <button
+                onClick={() => onCancel(order.id)}
+                className="text-blue-700 hover:underline"
+              >
+                Cancel
+              </button>
+            )}
         </div>
       </div>
       <div className="p-6">
