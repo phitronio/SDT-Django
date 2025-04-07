@@ -159,3 +159,13 @@ def payment_cancel(request):
 def payment_fail(request):
     print("Inside fail")
     return HttpResponseRedirect(f"{main_settings.FRONTEND_URL}/dashboard/orders/")
+
+
+class HasOrderedProduct(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, product_id):
+        user = request.user
+        has_ordered = OrderItem.objects.filter(
+            order__user=user, product_id=product_id).exists()
+        return Response({"hasOrdered": has_ordered})
