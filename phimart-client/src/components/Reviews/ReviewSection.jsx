@@ -47,6 +47,19 @@ const ReviewSection = () => {
     }
   };
 
+  const handleUpdateReview = async (reviewId) => {
+    try {
+      await authApiClient.put(
+        `/products/${productId}/reviews/${reviewId}/`,
+        editReview
+      );
+      setEditingId(null);
+      fetchReviews();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     checkUserPermission();
     fetchReviews();
@@ -91,6 +104,7 @@ const ReviewSection = () => {
           setEditReview={setEditReview}
           editingId={editingId}
           setEditingId={setEditingId}
+          handleUpdateReview={handleUpdateReview}
         />
       )}
     </div>
