@@ -8,6 +8,7 @@ const ReviewList = ({
   editingId,
   setEditingId,
   handleUpdateReview,
+  handleDeleteReview,
 }) => {
   return reviews.map((review) => (
     <ReviewCard
@@ -26,6 +27,7 @@ const ReviewList = ({
       }}
       onCancelEdit={() => setEditingId(null)}
       onSaveEdit={handleUpdateReview}
+      onDeleteClick={() => handleDeleteReview(review.id)}
     />
   ));
 };
